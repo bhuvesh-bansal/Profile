@@ -3,23 +3,24 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    port: 3000,
-    host: true,
-    strictPort: true,
-    open: true
-  },
-  preview: {
-    port: 3000,
-    strictPort: true,
-  },
+  base: '/',
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: true,
     rollupOptions: {
       output: {
         manualChunks: undefined
       }
     }
   },
-  base: ''
+  server: {
+    port: 3000,
+    strictPort: true,
+    host: true
+  },
+  preview: {
+    port: 3000,
+    strictPort: true,
+  },
 });
